@@ -28,20 +28,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
     latitude = location.latitude;
     longitude = location.longitude;
 
-    // 非同期で取得
+    // NetWorkHelperクラスを代入
     NetWorkHelper networkHelper = NetWorkHelper('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$API_KEY');
-  }
 
-  // APIのデータを取得
-  void getData() async {
+    // 非同期でJSONデータを取得
+    var weatherData = await networkHelper.getData();
 
-      double temperature = decodedData['main']['temp'];
-      int condition = decodedData['weather'][0]['id'];
-      String cityName = decodedData['name'];
-
-      print(temperature);
-      print(condition);
-      print(cityName);
   }
 
   @override
