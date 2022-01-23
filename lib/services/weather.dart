@@ -7,7 +7,7 @@ const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 class WeatherModel {
 
   // APIからデータを取得する
-  void getLocationWeather() async {
+  Future<dynamic> getLocationWeather() async {
     Location location = Location();
     await location.getCurrentLocation();
 
