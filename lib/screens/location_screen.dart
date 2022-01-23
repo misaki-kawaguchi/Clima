@@ -33,6 +33,16 @@ class _LocationScreenState extends State<LocationScreen> {
   // dynamic:動的な型宣言
   void updateUI(dynamic weatherData) {
     setState(() {
+
+      // データを取得できなかった場合
+      if (weatherData == null) {
+        temperature = 0;
+        weatherIcon = 'Error';
+        weatherMessage = 'Unable to get weather data';
+        cityName = '';
+        return;
+      }
+
       // 気温
       double temp = weatherData['main']['temp'];
       temperature = temp.toInt();
