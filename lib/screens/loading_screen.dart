@@ -7,6 +7,14 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+
+  // 現在の位置を取得
+  // async await：時間のかかるタスクを実行できるようにするための方法
+  void getLocation() async {
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    print(position);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
