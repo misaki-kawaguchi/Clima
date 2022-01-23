@@ -28,7 +28,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
   // APIのデータを取得
   void getData() async {
     Response response = await get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$API_KEY'));
-    print(response);
+    // JSONデータ
+    print(response.body);
+    // ステータスコード
+    print(response.statusCode);
   }
 
   @override
