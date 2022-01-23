@@ -1,10 +1,18 @@
 import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
 import 'package:clima/api/api.dart';
+import 'package:clima/api/api.dart';
 
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
+
+  // 都市名からデータを取得する
+  Future<dynamic> getCityWeather(String cityName) async {
+    NetWorkHelper networkHelper = NetWorkHelper('$openWeatherMapURL?q=$cityName&appid=$API_KEY&units=metric');
+    var weatherData = await networkHelper.getData();
+    return weatherData;
+  }
 
   // APIからデータを取得する
   Future<dynamic> getLocationWeather() async {
