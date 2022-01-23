@@ -17,13 +17,34 @@ class _LoadingScreenState extends State<LoadingScreen> {
   // 現在の位置を取得
   // async await：時間のかかるタスクを実行できるようにするための方法
   void getLocation() async {
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    print(position);
+    try {
+      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+      print(position);
+    }
+    catch(e) {
+
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+
+    String myMargin = '15';
+    double myMarginAsDouble;
+
+    try {
+      myMarginAsDouble = double.parse(myMargin);
+    }
+    catch(e) {
+      print(e);
+    }
+
     return Scaffold(
+      body: Container(
+        margin: EdgeInsets.all(myMarginAsDouble ?? 30.0),
+        color: Colors.red,
+
+      ),
     );
   }
 }
