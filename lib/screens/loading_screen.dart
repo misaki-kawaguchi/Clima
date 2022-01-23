@@ -24,7 +24,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
 
-    String myMargin = 'abc';
+    String myMargin = '15';
     double myMarginAsDouble;
 
     try {
