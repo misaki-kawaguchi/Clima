@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
 import 'package:http/http.dart';
+import 'package:clima/api/api.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -22,6 +23,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
     await location.getCurrentLocation();
     print(location.latitude);
     print(location.longitude);
+  }
+
+  // APIのデータを取得
+  void getData() {
+    Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$API_KEY');
   }
 
   @override
