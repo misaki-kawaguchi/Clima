@@ -20,7 +20,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   // async await：時間のかかるタスクを実行できるようにするための方法
   void getLocationData() async {
 
-    var weatherData = WeatherModel().getLocationWeather();
+    var weatherData = await WeatherModel().getLocationWeather();
 
     // location_screenページに遷移する
     Navigator.push(
