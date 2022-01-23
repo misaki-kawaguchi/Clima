@@ -30,6 +30,8 @@ class _LocationScreenState extends State<LocationScreen> {
     temperature = weatherData['main']['temp'];
     condition = weatherData['weather'][0]['id'];
     cityName = weatherData['name'];
+
+    print(temperature);
   }
 
   @override

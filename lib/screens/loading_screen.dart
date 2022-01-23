@@ -31,7 +31,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     // NetWorkHelperクラスを代入
     NetWorkHelper networkHelper = NetWorkHelper(
-        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$API_KEY');
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$API_KEY&units=metric');
 
     // 非同期でJSONデータを取得
     var weatherData = await networkHelper.getData();
