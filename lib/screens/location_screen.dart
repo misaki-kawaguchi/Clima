@@ -1,9 +1,10 @@
+import 'package:clima/screens/city_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 import 'package:clima/services/weather.dart';
+import 'package:clima/screens/city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
-
   LocationScreen({this.locationWeather});
 
   final locationWeather;
@@ -13,7 +14,6 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-
   // WeatherModelオブジェクト
   WeatherModel weather = WeatherModel();
 
@@ -33,7 +33,6 @@ class _LocationScreenState extends State<LocationScreen> {
   // dynamic:動的な型宣言
   void updateUI(dynamic weatherData) {
     setState(() {
-
       // データを取得できなかった場合
       if (weatherData == null) {
         temperature = 0;
@@ -91,7 +90,16 @@ class _LocationScreenState extends State<LocationScreen> {
                     ),
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return CityScreen();
+                          },
+                        ),
+                      );
+                    },
                     child: Icon(
                       Icons.location_city,
                       size: 50.0,
