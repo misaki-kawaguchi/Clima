@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clima/screens/location_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:clima/services/weather.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -18,6 +19,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
   // 現在の位置を取得
   // async await：時間のかかるタスクを実行できるようにするための方法
   void getLocationData() async {
+
+    WeatherModel weatherModel = WeatherModel();
+    var weatherData = weatherModel.getLocationWeather();
 
     // location_screenページに遷移する
     Navigator.push(
