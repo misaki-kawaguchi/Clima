@@ -17,6 +17,8 @@ class WeatherModel {
 
     // 非同期でJSONデータを取得
     var weatherData = await networkHelper.getData();
+
+    return weatherData;
   }
 
   String getWeatherIcon(int condition) {
