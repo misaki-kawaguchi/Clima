@@ -99,7 +99,9 @@ class _LocationScreenState extends State<LocationScreen> {
                           },
                         ),
                       );
-                      print(typedName);
+                      if (typedName != null) {
+
+                      };
                     },
                     child: Icon(
                       Icons.location_city,
