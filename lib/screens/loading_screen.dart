@@ -26,29 +26,15 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   // APIのデータを取得
-  void getData() {
-    Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$API_KEY');
+  void getData() async {
+    Response response = await get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$API_KEY'));
+    print(response);
   }
 
   @override
   Widget build(BuildContext context) {
-
-    String myMargin = '15';
-    double myMarginAsDouble;
-
-    try {
-      myMarginAsDouble = double.parse(myMargin);
-    }
-    catch(e) {
-      print(e);
-    }
-
+    getData();
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.all(myMarginAsDouble ?? 30.0),
-        color: Colors.red,
-
-      ),
     );
   }
 }
