@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
 import 'package:clima/api/api.dart';
+import 'package:clima/screens/location_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -9,7 +10,6 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-
   double latitude;
   double longitude;
 
@@ -29,16 +29,25 @@ class _LoadingScreenState extends State<LoadingScreen> {
     longitude = location.longitude;
 
     // NetWorkHelperクラスを代入
-    NetWorkHelper networkHelper = NetWorkHelper('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$API_KEY');
+    NetWorkHelper networkHelper = NetWorkHelper(
+        'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$API_KEY');
 
     // 非同期でJSONデータを取得
     var weatherData = await networkHelper.getData();
 
+    // location_screenページに遷移する
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return LocationScreen();
+        },
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    );
+    return Scaffold();
   }
 }
