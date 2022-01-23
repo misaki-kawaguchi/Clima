@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:clima/api/api.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -27,7 +27,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   // APIのデータを取得
   void getData() async {
-    Response response = await get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$API_KEY'));
+    http.Response response = await http.get(Uri.parse('https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$API_KEY'));
     // JSONデータ
     print(response.body);
     // ステータスコード
